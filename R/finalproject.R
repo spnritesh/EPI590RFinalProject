@@ -27,7 +27,11 @@ tbl_summary(
 			preOp_pain ~ "Preoperative Pain",
 			treat ~ "Intervention",
 			intraOp_surgerySize ~ "Surgery Size",
-			extubation_cough ~ "Amount	of	coughing	immediately	afater
-													extubation",
+			extubation_cough ~ "Amount	of	coughing	immediately	after
+													extubation"
 		),
 missing_text = "Missing")
+
+#regression and results
+linear_model <- lm(gender ~ preOp_asa + preOp_calcBMI + preOp_age,
+									 data = lico)
