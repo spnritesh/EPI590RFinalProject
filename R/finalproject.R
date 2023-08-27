@@ -33,5 +33,25 @@ tbl_summary(
 missing_text = "Missing")
 
 #regression and results
-linear_model <- lm(gender ~ preOp_asa + preOp_calcBMI + preOp_age,
+linear_model <- lm(preOp_gender ~ preOp_asa + preOp_calcBMI + preOp_age,
 									 data = lico)
+tbl_regression(
+	linear_model,
+	intercept = TRUE,
+	label = list(
+		preOp_asa ~ "ASA physical status",
+		preOp_calcBMI ~ "BMI",
+		preOp_age ~ "Age"
+		))
+# There is no significant difference between gender and ASA, BMI, or Age in the study.
+
+#figure
+hist(lico$preOp_calcBMI)
+
+#function
+avgvar <- function(x) {
+	n <- length(x)
+	mean_val <- sum(x) / n
+	return(mean_val)
+}
+avgvar(x = lico$preOp_mallampati)
