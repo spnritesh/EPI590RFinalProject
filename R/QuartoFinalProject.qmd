@@ -24,7 +24,7 @@ lico_cols <- c("sex", "asa", "bmi", "age", "mallampati", "smoking", "pain", "tre
 ```
 
 ```{r}
-#| label: tbl_descr
+#| label: tbl-descr
 #| tbl-cap: "Descriptive statistics"
 #| output-location: slide
 #gtsumamry table
@@ -51,7 +51,7 @@ missing_text = "Missing")
 ```
 
 ```{r}
-#| label: tbl_desc
+#| label: tbl-lin
 #| tbl-cap: "Linear Regression"
 #| output-location: slide
 
@@ -70,11 +70,36 @@ tbl_regression(
 ```
 
 ```{r}
-#| label: tbl_des
-#| tbl-cap: "Histogram of Linear Regression"
+#| label: fig-plots
+#| fig-cap: "Histogram of Linear Regression"
 #| output-location: slide
 
 #figure
 hist(lico$preOp_calcBMI)
 
 ```
+@fig-plots contains a histogram.
+@tbl-descr contains descriptive statistics.
+```{r}
+#| erro: true
+#inline stats from gtsummary
+table1 <- tbl_summary(
+  lico,
+  by = preOp_gender,
+  	include = c(preOp_calcBMI, preOp_asa, preOp_age, preOp_pain)) |>
+		add_overall(last = TRUE)
+	table1
+
+	inline_text(table1, variable = "preOp_calcBMI", column = "0")
+
+#printing inline
+pain_f <- inline_text(table1, variable = "preOp_pain", 
+                         column = "0")
+pain_m <- inline_text(table1, variable = "preOp_pain", 
+                         column = "1")
+```
+A lower proportion of female (`r pain_f`) than male (`r pain_m`) participants are in preOp pain.
+
+The data is from a randomized, double-blind, comparison of licorice vs sugar-water gargle for prevention of postop sore throat and postextubation coughing. The study includes variables like age, sex, gender, mallampati score, postop pain, extubation coughing, BMI,  smoking status, and outcomes.
+
+
