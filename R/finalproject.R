@@ -3,6 +3,11 @@ library (medicaldata)
 library (tidyverse)
 library(gtsummary)
 
+#here package
+#my dataset is from a package so I didn't have to set up a working directory
+#I just placed a sample here code for exam purpose
+# source(here::here("R", "finalproject.R"))
+
 #table cleaning
 #data (package = "medicaldata")
 lic <- medicaldata::licorice_gargle
