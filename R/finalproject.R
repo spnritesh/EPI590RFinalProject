@@ -7,6 +7,7 @@ library(gtsummary)
 #my dataset is from a package so I didn't have to set up a working directory
 #I just placed a sample here code for exam purpose
 # source(here::here("R", "finalproject.R"))
+# lico <- read_csv(here::here("data", "raw", "licoricedata.csv"))
 
 #table cleaning
 #data (package = "medicaldata")
@@ -62,3 +63,7 @@ avgvar <- function(x) {
 avgvar(x = lico$preOp_mallampati)
 
 #create, render quarto doc
+
+#renv
+renv::init()
+renv::snapshot()
