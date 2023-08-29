@@ -67,3 +67,6 @@ avgvar(x = lico$preOp_mallampati)
 #renv
 renv::init()
 renv::snapshot()
+#renv.lock file is under the data folder
+
+
